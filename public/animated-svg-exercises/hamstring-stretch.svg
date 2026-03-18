@@ -1,0 +1,47 @@
+<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" class="stretching-mannequin">
+  <style>
+    .joint { fill: #555; }
+    .limb { stroke: #ddd; stroke-width: 16; stroke-linecap: round; }
+    .thin-limb { stroke: #ddd; stroke-width: 12; stroke-linecap: round; }
+    .head-shape { fill: #ddd; stroke: #999; stroke-width: 2; }
+
+    .torso { transform-origin: 180px 180px; animation: fold-forward 7s ease-in-out infinite; }
+    .arms { transform-origin: 140px 130px; animation: reach-toes 7s ease-in-out infinite; }
+    .head { transform-origin: 140px 100px; animation: head-drop 7s ease-in-out infinite; }
+
+    @keyframes fold-forward {
+      0%, 10%, 90%, 100% { transform: rotate(0deg); }
+      35%, 65% { transform: rotate(-45deg); }
+    }
+    @keyframes reach-toes {
+      0%, 10%, 90%, 100% { transform: rotate(0deg); }
+      35%, 65% { transform: rotate(-30deg); }
+    }
+    @keyframes head-drop {
+      0%, 10%, 90%, 100% { transform: rotate(0deg); }
+      35%, 65% { transform: rotate(-15deg); }
+    }
+  </style>
+
+  <line x1="30" y1="230" x2="370" y2="230" stroke="#eee" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Legs (seated, straight) -->
+  <line x1="180" y1="200" x2="340" y2="200" class="limb" />
+  <circle cx="180" cy="200" r="6" class="joint" />
+
+  <!-- Torso folding forward -->
+  <g class="torso">
+    <line x1="180" y1="180" x2="140" y2="100" class="limb" />
+    <circle cx="180" cy="180" r="6" class="joint" />
+
+    <g class="head">
+      <ellipse cx="125" cy="80" rx="16" ry="20" class="head-shape" />
+      <circle cx="140" cy="100" r="5" class="joint" />
+    </g>
+
+    <g class="arms">
+      <line x1="155" y1="125" x2="200" y2="180" class="thin-limb" />
+      <line x1="155" y1="120" x2="200" y2="175" class="thin-limb" />
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,68 @@
+<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" class="stretching-mannequin">
+  <style>
+    .joint { fill: #555; }
+    .limb { stroke: #ddd; stroke-width: 16; stroke-linecap: round; }
+    .thin-limb { stroke: #ddd; stroke-width: 12; stroke-linecap: round; }
+    .head-shape { fill: #ddd; stroke: #999; stroke-width: 2; }
+
+    .thigh-r { transform-origin: 220px 150px; animation: pull-knee-r 6s ease-in-out infinite; }
+    .thigh-l { transform-origin: 200px 150px; animation: pull-knee-l 6s ease-in-out infinite; }
+    .shin-r { transform-origin: 220px 90px; animation: fold-shin-r 6s ease-in-out infinite; }
+    .shin-l { transform-origin: 200px 90px; animation: fold-shin-l 6s ease-in-out infinite; }
+    .arms { transform-origin: 180px 120px; animation: hug-knees 6s ease-in-out infinite; }
+
+    @keyframes pull-knee-r {
+      0%, 10%, 90%, 100% { transform: rotate(0deg); }
+      30%, 70% { transform: rotate(-110deg); }
+    }
+    @keyframes pull-knee-l {
+      0%, 10%, 90%, 100% { transform: rotate(0deg); }
+      30%, 70% { transform: rotate(-110deg); }
+    }
+    @keyframes fold-shin-r {
+      0%, 10%, 90%, 100% { transform: rotate(0deg); }
+      30%, 70% { transform: rotate(100deg); }
+    }
+    @keyframes fold-shin-l {
+      0%, 10%, 90%, 100% { transform: rotate(0deg); }
+      30%, 70% { transform: rotate(100deg); }
+    }
+    @keyframes hug-knees {
+      0%, 10%, 90%, 100% { transform: rotate(0deg); }
+      30%, 70% { transform: rotate(-40deg); }
+    }
+  </style>
+
+  <line x1="50" y1="178" x2="350" y2="178" stroke="#eee" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Lying body (horizontal) -->
+  <line x1="100" y1="150" x2="220" y2="150" class="limb" />
+  <ellipse cx="85" cy="150" rx="18" ry="14" class="head-shape" />
+  <circle cx="100" cy="150" r="5" class="joint" />
+
+  <!-- Right leg -->
+  <g class="thigh-r">
+    <line x1="220" y1="150" x2="220" y2="90" class="limb" />
+    <circle cx="220" cy="150" r="6" class="joint" />
+    <g class="shin-r">
+      <line x1="220" y1="90" x2="280" y2="90" class="limb" />
+      <circle cx="220" cy="90" r="5" class="joint" />
+    </g>
+  </g>
+
+  <!-- Left leg -->
+  <g class="thigh-l">
+    <line x1="200" y1="150" x2="200" y2="90" class="limb" />
+    <circle cx="200" cy="150" r="6" class="joint" />
+    <g class="shin-l">
+      <line x1="200" y1="90" x2="260" y2="90" class="limb" />
+      <circle cx="200" cy="90" r="5" class="joint" />
+    </g>
+  </g>
+
+  <!-- Arms (hug motion) -->
+  <g class="arms">
+    <line x1="140" y1="140" x2="180" y2="120" class="thin-limb" />
+    <line x1="140" y1="160" x2="180" y2="140" class="thin-limb" />
+  </g>
+</svg>

@@ -1,0 +1,51 @@
+<svg viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .joint { fill: #555; }
+    .limb { fill: #ddd; stroke: #999; stroke-width: 2; }
+    /* Example: target specific parts for rotation */
+    #arm-right { transform-origin: 85px 100px; }
+  </style>
+
+  <g id="body">
+    <ellipse id="head" cx="100" cy="50" rx="20" ry="25" class="limb"/>
+    <circle id="neck" cx="100" cy="80" r="5" class="joint"/>
+    <path id="chest" d="M70 85 h60 l-10 60 h-40 z" class="limb"/>
+    <path id="pelvis" d="M75 150 h50 l-5 30 h-40 z" class="limb"/>
+  </g>
+
+  <g id="arm-right">
+    <circle id="shoulder-r" cx="135" cy="100" r="7" class="joint"/>
+    <rect id="upper-arm-r" x="130" y="105" width="10" height="40" rx="5" class="limb"/>
+    <g id="forearm-right">
+       <circle id="elbow-r" cx="135" cy="150" r="6" class="joint"/>
+       <rect id="lower-arm-r" x="130" y="155" width="10" height="35" rx="5" class="limb"/>
+    </g>
+  </g>
+
+  <g id="arm-left">
+    <circle id="shoulder-l" cx="65" cy="100" r="7" class="joint"/>
+    <rect id="upper-arm-l" x="60" y="105" width="10" height="40" rx="5" class="limb"/>
+    <g id="forearm-left">
+       <circle id="elbow-l" cx="65" cy="150" r="6" class="joint"/>
+       <rect id="lower-arm-l" x="60" y="155" width="10" height="35" rx="5" class="limb"/>
+    </g>
+  </g>
+
+  <g id="leg-right">
+    <circle id="hip-r" cx="115" cy="185" r="8" class="joint"/>
+    <rect id="thigh-r" x="110" y="195" width="12" height="50" rx="6" class="limb"/>
+    <g id="shin-right">
+      <circle id="knee-r" cx="116" cy="250" r="7" class="joint"/>
+      <rect id="lower-leg-r" x="110" y="260" width="12" height="45" rx="6" class="limb"/>
+    </g>
+  </g>
+
+  <g id="leg-left">
+    <circle id="hip-l" cx="85" cy="185" r="8" class="joint"/>
+    <rect id="thigh-l" x="78" y="195" width="12" height="50" rx="6" class="limb"/>
+    <g id="shin-left">
+      <circle id="knee-l" cx="84" cy="250" r="7" class="joint"/>
+      <rect id="lower-leg-l" x="78" y="260" width="12" height="45" rx="6" class="limb"/>
+    </g>
+  </g>
+</svg>

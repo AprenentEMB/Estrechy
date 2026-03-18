@@ -1,0 +1,54 @@
+<svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" class="stretching-mannequin">
+  <style>
+    .joint { fill: #555; }
+    .limb { stroke: #ddd; stroke-width: 16; stroke-linecap: round; }
+    .thin-limb { stroke: #ddd; stroke-width: 12; stroke-linecap: round; }
+    .head-shape { fill: #ddd; stroke: #999; stroke-width: 2; }
+
+    .bottom-leg { transform-origin: 230px 155px; animation: pull-leg 7s ease-in-out infinite; }
+    .crossed-leg { transform-origin: 210px 155px; animation: cross-ankle 7s ease-in-out infinite; }
+    .arms-pull { animation: arms-hug 7s ease-in-out infinite; }
+
+    @keyframes pull-leg {
+      0%, 10%, 90%, 100% { transform: rotate(0deg); }
+      30%, 70% { transform: rotate(-80deg); }
+    }
+    @keyframes cross-ankle {
+      0%, 10%, 90%, 100% { transform: rotate(0deg); }
+      30%, 70% { transform: rotate(-60deg); }
+    }
+    @keyframes arms-hug {
+      0%, 10%, 90%, 100% { transform: translateY(0); }
+      30%, 70% { transform: translateY(-15px); }
+    }
+  </style>
+
+  <line x1="30" y1="195" x2="370" y2="195" stroke="#eee" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Lying torso -->
+  <line x1="100" y1="155" x2="230" y2="155" class="limb" />
+  <ellipse cx="82" cy="155" rx="18" ry="14" class="head-shape" />
+  <circle cx="100" cy="155" r="5" class="joint" />
+
+  <!-- Bottom leg (pulls toward chest) -->
+  <g class="bottom-leg">
+    <line x1="230" y1="155" x2="270" y2="195" class="limb" />
+    <circle cx="230" cy="155" r="6" class="joint" />
+    <line x1="270" y1="195" x2="330" y2="195" class="limb" />
+    <circle cx="270" cy="195" r="5" class="joint" />
+  </g>
+
+  <!-- Crossed leg (ankle on knee) -->
+  <g class="crossed-leg">
+    <line x1="210" y1="155" x2="240" y2="120" class="limb" />
+    <circle cx="210" cy="155" r="6" class="joint" />
+    <line x1="240" y1="120" x2="270" y2="145" class="thin-limb" />
+    <circle cx="240" cy="120" r="5" class="joint" />
+  </g>
+
+  <!-- Arms -->
+  <g class="arms-pull">
+    <line x1="150" y1="145" x2="190" y2="120" class="thin-limb" />
+    <line x1="150" y1="165" x2="190" y2="140" class="thin-limb" />
+  </g>
+</svg>

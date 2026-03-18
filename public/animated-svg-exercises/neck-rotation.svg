@@ -1,0 +1,45 @@
+<svg viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg" class="stretching-mannequin">
+  <style>
+    .joint { fill: #555; }
+    .limb { fill: #ddd; stroke: #999; stroke-width: 2; }
+    
+    /* Rotation Logic: Squash the head and move the 'nose' */
+    .animate-rotation {
+      transform-origin: center;
+      transform-box: fill-box;
+      animation: neck-rotate 8s ease-in-out infinite;
+    }
+
+    @keyframes neck-rotate {
+      0%, 100% { transform: scaleX(1) translateX(0); }
+      20%, 40% { transform: scaleX(0.8) translateX(5px); }  /* Turn Right (squash + shift) */
+      50% { transform: scaleX(1) translateX(0); }           /* Center */
+      70%, 90% { transform: scaleX(0.8) translateX(-5px); } /* Turn Left (squash + shift) */
+    }
+
+    /* Move the nose further to emphasize the turn */
+    .nose-move {
+      animation: nose-slide 8s ease-in-out infinite;
+    }
+
+    @keyframes nose-slide {
+      0%, 50%, 100% { transform: translateX(0); opacity: 1; }
+      20%, 40% { transform: translateX(12px); opacity: 0.5; } /* Nose moves to edge */
+      70%, 90% { transform: translateX(-12px); opacity: 0.5; } 
+    }
+  </style>
+
+  <g id="body">
+    <circle id="neck" cx="100" cy="80" r="5" class="joint"/>
+    <path id="chest" d="M70 85 h60 l-10 60 h-40 z" class="limb"/>
+    <path id="pelvis" d="M75 150 h50 l-5 30 h-40 z" class="limb"/>
+  </g>
+
+  <g class="animate-rotation">
+    <ellipse id="head" cx="100" cy="50" rx="20" ry="25" class="limb"/>
+    <path class="nose-move" d="M100 45 v10 l3 2" fill="none" stroke="#666" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <g id="arm-right"><circle cx="135" cy="100" r="7" class="joint"/><rect x="130" y="105" width="10" height="75" rx="5" class="limb"/></g>
+  <g id="arm-left"><circle cx="65" cy="100" r="7" class="joint"/><rect x="60" y="105" width="10" height="75" rx="5" class="limb"/></g>
+</svg>

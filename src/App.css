@@ -1,0 +1,75 @@
+/* App.css */
+
+/* General styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+section#center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.hero {
+  text-align: center;
+}
+
+.hero img.base {
+  width: auto;
+  max-height: 40%;
+}
+
+.hero img.framework, .hero img.vite {
+  margin-top: -10px; /* Adjust as needed */
+}
+
+h1, p {
+  color: #333;
+}
+
+button.counter {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+}
+
+button.counter:hover {
+  background-color: #45a049;
+}
+
+/* Ticks styles */
+.ticks {
+  height: 20px;
+  background-color: #f3f3f3;
+}
+
+/* Next Steps styles */
+#next-steps {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+#docs, #social {
+  width: calc(48% - 10px);
+}
+
+.icon {
+  margin-right: 15px;
+}
+
+button-icon {
+  margin-right: 5px;
+}
+
+/* Spacer styles */
+#spacer {
+  height: 100px; /* Adjust as needed */
+}

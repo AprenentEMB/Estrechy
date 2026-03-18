@@ -1,0 +1,46 @@
+<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" class="stretching-mannequin">
+  <style>
+    .joint { fill: #555; }
+    .limb { fill: #ddd; stroke: #999; stroke-width: 2; }
+    
+    /* Spine Animation: Arching and Rounding */
+    .animate-spine {
+      animation: cat-cow-spine 6s ease-in-out infinite;
+    }
+    
+    /* Head Animation: Looking up (Cow) and tucking (Cat) */
+    .animate-head {
+      transform-origin: 100px 80px;
+      animation: cat-cow-head 6s ease-in-out infinite;
+    }
+
+    @keyframes cat-cow-spine {
+      0%, 100% { d: path("M100,80 Q200,80 300,80"); } /* Neutral */
+      25% { d: path("M100,70 Q200,110 300,70"); }    /* Cow (Arch down, belly to floor) */
+      75% { d: path("M100,90 Q200,40 300,90"); }     /* Cat (Round up, spine to ceiling) */
+    }
+
+    @keyframes cat-cow-head {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-20deg); } /* Look up */
+      75% { transform: rotate(40deg); }  /* Look down / tuck chin */
+    }
+  </style>
+
+  <line x1="50" y1="180" x2="350" y2="180" stroke="#eee" stroke-width="2" />
+
+  <g id="legs-back">
+    <rect x="290" y="80" width="12" height="100" rx="6" class="limb" transform="rotate(-10 295 80)"/>
+  </g>
+
+  <g id="arms-front">
+    <rect x="95" y="80" width="12" height="100" rx="6" class="limb" />
+  </g>
+
+  <path id="spine" d="M100,80 Q200,80 300,80" fill="none" stroke="#ddd" stroke-width="40" stroke-linecap="round" class="animate-spine" />
+  
+  <circle cx="300" cy="80" r="8" class="joint" />
+
+  <g class="animate-head">
+     <circle cx="100" cy="80" r="6" class="joint" /> <ellipse cx="80" cy="65" rx="22" ry="18" class="limb" /> </g>
+</svg>

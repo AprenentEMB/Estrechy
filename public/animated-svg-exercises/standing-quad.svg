@@ -1,0 +1,46 @@
+<svg viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg" class="stretching-mannequin">
+  <style>
+    .joint { fill: #555; }
+    .limb { fill: #ddd; stroke: #999; stroke-width: 2; }
+
+    .bent-leg { transform-origin: 120px 260px; animation: bend-knee 6s ease-in-out infinite; }
+    .pull-arm { transform-origin: 135px 100px; animation: reach-back 6s ease-in-out infinite; }
+
+    @keyframes bend-knee {
+      0%, 10%, 90%, 100% { transform: rotate(0deg); }
+      30%, 70% { transform: rotate(-120deg); }
+    }
+    @keyframes reach-back {
+      0%, 10%, 90%, 100% { transform: rotate(0deg); }
+      30%, 70% { transform: rotate(60deg); }
+    }
+  </style>
+
+  <!-- Head & torso -->
+  <ellipse cx="100" cy="50" rx="20" ry="25" class="limb"/>
+  <circle cx="100" cy="80" r="5" class="joint"/>
+  <path d="M70 85 h60 l-10 60 h-40 z" class="limb"/>
+  <path d="M75 150 h50 l-5 30 h-40 z" class="limb"/>
+
+  <!-- Standing leg -->
+  <rect x="78" y="185" width="12" height="100" rx="6" class="limb"/>
+  <circle cx="84" cy="185" r="6" class="joint"/>
+
+  <!-- Bent leg -->
+  <rect x="110" y="185" width="12" height="70" rx="6" class="limb"/>
+  <circle cx="116" cy="185" r="6" class="joint"/>
+  <g class="bent-leg">
+    <rect x="110" y="260" width="12" height="60" rx="6" class="limb"/>
+    <circle cx="116" cy="260" r="5" class="joint"/>
+  </g>
+
+  <!-- Left arm (balance) -->
+  <rect x="60" y="105" width="10" height="75" rx="5" class="limb"/>
+  <circle cx="65" cy="100" r="7" class="joint"/>
+
+  <!-- Right arm (pulling foot) -->
+  <g class="pull-arm">
+    <rect x="130" y="105" width="10" height="80" rx="5" class="limb"/>
+    <circle cx="135" cy="100" r="7" class="joint"/>
+  </g>
+</svg>

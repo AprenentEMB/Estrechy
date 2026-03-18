@@ -1,0 +1,62 @@
+<svg viewBox="0 0 400 220" xmlns="http://www.w3.org/2000/svg" class="stretching-mannequin">
+  <style>
+    .joint { fill: #555; }
+    .limb { stroke: #ddd; stroke-width: 16; stroke-linecap: round; }
+    .thin-limb { stroke: #ddd; stroke-width: 12; stroke-linecap: round; }
+    .head-shape { fill: #ddd; stroke: #999; stroke-width: 2; }
+
+    .threading-arm {
+      transform-origin: 160px 80px;
+      animation: thread 7s ease-in-out infinite;
+    }
+    .torso-rotate {
+      transform-origin: 200px 80px;
+      animation: rotate-torso 7s ease-in-out infinite;
+    }
+    .head-follow {
+      transform-origin: 160px 80px;
+      animation: head-turn 7s ease-in-out infinite;
+    }
+
+    @keyframes thread {
+      0%, 10%, 90%, 100% { transform: rotate(0deg); }
+      35%, 65% { transform: rotate(-90deg) translateX(-20px); }
+    }
+    @keyframes rotate-torso {
+      0%, 10%, 90%, 100% { transform: rotate(0deg); }
+      35%, 65% { transform: rotate(-15deg); }
+    }
+    @keyframes head-turn {
+      0%, 10%, 90%, 100% { transform: rotate(0deg); }
+      35%, 65% { transform: rotate(-30deg); }
+    }
+  </style>
+
+  <line x1="30" y1="195" x2="370" y2="195" stroke="#eee" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Legs (kneeling, stationary) -->
+  <line x1="290" y1="80" x2="290" y2="190" class="limb" />
+  <line x1="310" y1="80" x2="310" y2="190" class="limb" />
+  <circle cx="290" cy="80" r="6" class="joint" />
+
+  <!-- Support arm (stationary) -->
+  <line x1="240" y1="80" x2="240" y2="190" class="thin-limb" />
+
+  <g class="torso-rotate">
+    <!-- Torso (horizontal on all fours) -->
+    <line x1="200" y1="80" x2="290" y2="80" class="limb" />
+    <circle cx="200" cy="80" r="6" class="joint" />
+
+    <!-- Head -->
+    <g class="head-follow">
+      <circle cx="160" cy="80" r="5" class="joint" />
+      <ellipse cx="140" cy="68" rx="16" ry="18" class="head-shape" />
+    </g>
+
+    <!-- Threading arm -->
+    <g class="threading-arm">
+      <line x1="200" y1="80" x2="200" y2="190" class="thin-limb" />
+      <circle cx="200" cy="80" r="5" class="joint" />
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,46 @@
+<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" class="stretching-mannequin">
+  <style>
+    .joint { fill: #555; }
+    .limb { stroke: #ddd; stroke-width: 16; stroke-linecap: round; }
+    .thin-limb { stroke: #ddd; stroke-width: 12; stroke-linecap: round; }
+    .head-shape { fill: #ddd; stroke: #999; stroke-width: 2; }
+
+    .upper-body {
+      transform-origin: 200px 160px;
+      animation: cobra-rise 6s ease-in-out infinite;
+    }
+    .head-tilt {
+      transform-origin: 120px 100px;
+      animation: look-up 6s ease-in-out infinite;
+    }
+
+    @keyframes cobra-rise {
+      0%, 10%, 90%, 100% { transform: rotate(0deg); }
+      30%, 70% { transform: rotate(-35deg); }
+    }
+    @keyframes look-up {
+      0%, 10%, 90%, 100% { transform: rotate(0deg); }
+      30%, 70% { transform: rotate(-20deg); }
+    }
+  </style>
+
+  <line x1="30" y1="180" x2="370" y2="180" stroke="#eee" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Legs (lying flat) -->
+  <line x1="200" y1="165" x2="350" y2="165" class="limb" />
+
+  <!-- Upper body rising -->
+  <g class="upper-body">
+    <line x1="200" y1="160" x2="120" y2="140" class="limb" />
+    <circle cx="200" cy="160" r="6" class="joint" />
+
+    <!-- Arms (pushing up) -->
+    <line x1="170" y1="148" x2="175" y2="175" class="thin-limb" />
+    <line x1="145" y1="142" x2="148" y2="175" class="thin-limb" />
+
+    <g class="head-tilt">
+      <circle cx="120" cy="140" r="5" class="joint" />
+      <ellipse cx="105" cy="122" rx="16" ry="20" class="head-shape" />
+    </g>
+  </g>
+</svg>

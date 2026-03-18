@@ -1,0 +1,128 @@
+Act as a senior full-stack engineer.
+
+Create a project called "quickstretch" on the user's Desktop.
+
+## Project Setup
+- Create a root folder on Desktop: ~/Desktop/quickstretch
+- Inside, create:
+  - frontend/
+  - backend/
+
+---
+
+## Frontend (React PWA)
+
+Stack:
+- React + Vite + TypeScript
+- TailwindCSS
+- Zustand (state)
+- Framer Motion (animations)
+- PWA support (vite-plugin-pwa)
+
+Requirements:
+- Mobile-first design
+- App-like experience (fullscreen, smooth transitions)
+
+### Pages / Structure
+
+- Home (main screen)
+- Routine view
+
+### Core UX (IMPORTANT)
+
+1. Home screen:
+   - Display a human body (SVG-based, front/back toggle)
+   - Clickable regions (neck, shoulders, lower back, legs...)
+   - Highlight selected area
+
+2. Pain type modal:
+   - Options:
+     - Sharp pain
+     - Tension
+     - Stiffness
+     - Constant pain
+
+3. Routine result:
+   - Show:
+     - Title
+     - Duration (~3 min)
+     - Max 3 exercises
+
+4. Guided routine mode:
+   - Step-by-step exercises
+   - Timer per exercise
+   - Auto-advance
+   - Smooth animations
+
+### Components
+- BodySelector (SVG clickable)
+- PainSelectorModal
+- RoutineCard
+- ExercisePlayer (timer + animation)
+
+### PWA
+- Installable
+- Basic offline support
+- Manifest + service worker
+
+---
+
+## Backend (Bun API)
+
+- Bun server
+- REST API
+
+Endpoints:
+- GET /routines?bodyPart=&painType=
+- GET /exercises
+
+Structure:
+- routes/
+- controllers/
+- services/
+
+Use mock data initially.
+
+---
+
+## Database (Supabase-ready schema)
+
+Prepare schema (no need to connect yet):
+
+Tables:
+- routines
+- exercises
+- routine_exercises
+
+Include SQL schema file.
+
+---
+
+## Sample Data
+
+Include example routines like:
+- Neck tension routine
+- Lower back stiffness routine
+Each with 3 exercises.
+
+---
+
+## Deliverables
+
+- Fully working frontend (with mock API or local data)
+- Backend API running with Bun
+- Clean project structure
+- README with:
+  - install steps
+  - run commands
+- .env.example
+
+---
+
+## Important
+
+- PRIORITIZE UX SIMPLICITY
+- Keep UI minimal and fast
+- Code must be clean and scalable
+- Avoid overengineering
+- Use clear comments

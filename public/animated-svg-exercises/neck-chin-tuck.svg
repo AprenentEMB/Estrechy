@@ -1,0 +1,39 @@
+<svg viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg" class="stretching-mannequin">
+  <style>
+    .joint { fill: #555; }
+    .limb { fill: #ddd; stroke: #999; stroke-width: 2; }
+    
+    /* Chin Tuck Logic: Move head slightly back and up */
+    .animate-chin-tuck {
+      animation: chin-tuck 5s ease-in-out infinite;
+    }
+
+    @keyframes chin-tuck {
+      0%, 20%, 100% { 
+        transform: translate(0, 0); 
+      }
+      40% { 
+        /* Pulls back and slightly elongates the neck */
+        transform: translate(-5px, -2px); 
+      }
+      80% { 
+        /* Hold the stretch */
+        transform: translate(-5px, -2px); 
+      }
+    }
+  </style>
+
+  <g id="body">
+    <circle id="neck" cx="100" cy="80" r="5" class="joint"/>
+    <path id="chest" d="M70 85 h60 l-10 60 h-40 z" class="limb"/>
+    <path id="pelvis" d="M75 150 h50 l-5 30 h-40 z" class="limb"/>
+  </g>
+
+  <g class="animate-chin-tuck">
+    <ellipse id="head" cx="100" cy="50" rx="20" ry="25" class="limb"/>
+    <path d="M120 50 l5 5 l-5 5" fill="none" stroke="#999" stroke-width="2"/>
+  </g>
+
+  <g id="arm-right"><circle cx="135" cy="100" r="7" class="joint"/><rect x="130" y="105" width="10" height="75" rx="5" class="limb"/></g>
+  <g id="arm-left"><circle cx="65" cy="100" r="7" class="joint"/><rect x="60" y="105" width="10" height="75" rx="5" class="limb"/></g>
+</svg>

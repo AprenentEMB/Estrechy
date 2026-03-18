@@ -1,0 +1,53 @@
+<svg viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg" class="stretching-mannequin">
+  <style>
+    .joint { fill: #555; }
+    .limb { fill: #ddd; stroke: #999; stroke-width: 2; }
+    
+    /* The arm being stretched (Right Arm) */
+    .animate-cross-arm {
+      transform-origin: 135px 100px; /* Pivot at right shoulder */
+      animation: cross-stretch 6s ease-in-out infinite;
+    }
+
+    /* The arm doing the pulling (Left Arm) */
+    .animate-pulling-arm {
+      transform-origin: 65px 100px; /* Pivot at left shoulder */
+      animation: pull-arm 6s ease-in-out infinite;
+    }
+
+    @keyframes cross-stretch {
+      0%, 10%, 90%, 100% { transform: rotate(0deg); }
+      30%, 70% { transform: rotate(-70deg); } /* Swing across chest */
+    }
+
+    @keyframes pull-arm {
+      0%, 10%, 90%, 100% { transform: rotate(0deg); }
+      30%, 70% { transform: rotate(40deg) translate(10px, -5px); } /* Hooking move */
+    }
+  </style>
+
+  <g id="body">
+    <ellipse id="head" cx="100" cy="50" rx="20" ry="25" class="limb"/>
+    <circle id="neck" cx="100" cy="80" r="5" class="joint"/>
+    <path id="chest" d="M70 85 h60 l-10 60 h-40 z" class="limb"/>
+    <path id="pelvis" d="M75 150 h50 l-5 30 h-40 z" class="limb"/>
+  </g>
+
+  <g id="arm-left" class="animate-pulling-arm">
+    <circle cx="65" cy="100" r="7" class="joint"/>
+    <rect x="60" y="105" width="10" height="40" rx="5" class="limb"/>
+    <g id="forearm-left">
+       <circle cx="65" cy="150" r="6" class="joint"/>
+       <rect x="60" y="155" width="10" height="35" rx="5" class="limb"/>
+    </g>
+  </g>
+
+  <g id="arm-right" class="animate-cross-arm">
+    <circle cx="135" cy="100" r="7" class="joint"/>
+    <rect x="130" y="105" width="10" height="40" rx="5" class="limb"/>
+    <g id="forearm-right">
+       <circle cx="135" cy="150" r="6" class="joint"/>
+       <rect x="130" y="155" width="10" height="35" rx="5" class="limb"/>
+    </g>
+  </g>
+</svg>

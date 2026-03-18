@@ -1,0 +1,53 @@
+<svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg" class="stretching-mannequin">
+  <style>
+    .joint { fill: #555; }
+    .limb { fill: #ddd; stroke: #999; stroke-width: 2; }
+
+    .torso { transform-origin: 150px 200px; animation: lean-forward 6s ease-in-out infinite; }
+    .front-thigh { transform-origin: 140px 260px; }
+    .back-thigh { transform-origin: 160px 260px; }
+
+    .hip-push {
+      animation: push-hips 6s ease-in-out infinite;
+    }
+
+    @keyframes push-hips {
+      0%, 100% { transform: translateX(0px); }
+      50% { transform: translateX(8px); }
+    }
+
+    @keyframes lean-forward {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(-5deg) translateY(-5px); }
+    }
+  </style>
+
+  <!-- Floor line -->
+  <line x1="20" y1="380" x2="280" y2="380" stroke="#eee" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Back leg (kneeling) -->
+  <rect x="175" y="310" width="12" height="70" rx="6" class="limb" />
+  <rect x="170" y="260" width="12" height="55" rx="6" class="limb" transform="rotate(15 175 260)"/>
+  <circle cx="175" cy="310" r="6" class="joint" />
+
+  <g class="hip-push">
+    <!-- Pelvis -->
+    <path d="M130 230 h40 l-5 30 h-30 z" class="limb"/>
+
+    <g class="torso">
+      <!-- Torso -->
+      <path d="M130 160 h40 l-5 70 h-30 z" class="limb"/>
+      <circle cx="150" cy="155" r="5" class="joint"/>
+      <ellipse cx="150" cy="130" rx="18" ry="22" class="limb"/>
+      <!-- Arms hanging -->
+      <rect x="120" y="165" width="8" height="60" rx="4" class="limb" transform="rotate(-5 124 165)"/>
+      <rect x="172" y="165" width="8" height="60" rx="4" class="limb" transform="rotate(5 176 165)"/>
+    </g>
+
+    <!-- Front leg (lunging) -->
+    <rect x="115" y="260" width="12" height="55" rx="6" class="limb" transform="rotate(-30 121 260)"/>
+    <circle cx="121" cy="260" r="6" class="joint" />
+    <rect x="98" y="310" width="12" height="60" rx="6" class="limb" transform="rotate(10 104 310)"/>
+    <circle cx="104" cy="310" r="5" class="joint" />
+  </g>
+</svg>

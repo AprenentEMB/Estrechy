@@ -1,0 +1,55 @@
+<svg viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg" class="stretching-mannequin">
+  <style>
+    .joint { fill: #555; }
+    .limb { fill: #ddd; stroke: #999; stroke-width: 2; }
+    
+    /* Chest Expansion Logic */
+    .animate-chest {
+      animation: chest-swell 6s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    /* Arms pulling behind back */
+    .animate-arms-back-r {
+      transform-origin: 135px 100px;
+      animation: arm-hide-r 6s ease-in-out infinite;
+    }
+    
+    .animate-arms-back-l {
+      transform-origin: 65px 100px;
+      animation: arm-hide-l 6s ease-in-out infinite;
+    }
+
+    @keyframes chest-swell {
+      0%, 10%, 90%, 100% { transform: scaleX(1); }
+      30%, 70% { transform: scaleX(1.05); } /* Chest opens up */
+    }
+
+    @keyframes arm-hide-r {
+      0%, 10%, 90%, 100% { transform: rotate(0deg) translateX(0); }
+      30%, 70% { transform: rotate(15deg) translateX(-10px); opacity: 0.7; } /* Pulls "behind" */
+    }
+
+    @keyframes arm-hide-l {
+      0%, 10%, 90%, 100% { transform: rotate(0deg) translateX(0); }
+      30%, 70% { transform: rotate(-15deg) translateX(10px); opacity: 0.7; } /* Pulls "behind" */
+    }
+  </style>
+
+  <g id="body" class="animate-chest">
+    <ellipse id="head" cx="100" cy="50" rx="20" ry="25" class="limb"/>
+    <circle id="neck" cx="100" cy="80" r="5" class="joint"/>
+    <path id="chest" d="M70 85 h60 l-10 60 h-40 z" class="limb"/>
+    <path id="pelvis" d="M75 150 h50 l-5 30 h-40 z" class="limb"/>
+  </g>
+
+  <g id="arm-right" class="animate-arms-back-r">
+    <circle cx="135" cy="100" r="7" class="joint"/>
+    <rect x="130" y="105" width="10" height="80" rx="5" class="limb"/>
+  </g>
+
+  <g id="arm-left" class="animate-arms-back-l">
+    <circle cx="65" cy="100" r="7" class="joint"/>
+    <rect x="60" y="105" width="10" height="80" rx="5" class="limb"/>
+  </g>
+</svg>

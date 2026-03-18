@@ -1,0 +1,38 @@
+<svg viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg" class="stretching-mannequin">
+  <style>
+    .joint { fill: #555; }
+    .limb { fill: #ddd; stroke: #999; stroke-width: 2; }
+
+    .upper-body {
+      transform-origin: 100px 180px;
+      animation: side-lean 6s ease-in-out infinite;
+    }
+
+    @keyframes side-lean {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(20deg); }
+      50% { transform: rotate(0deg); }
+      75% { transform: rotate(-20deg); }
+    }
+  </style>
+
+  <!-- Legs (stationary) -->
+  <rect x="78" y="185" width="12" height="100" rx="6" class="limb"/>
+  <rect x="110" y="185" width="12" height="100" rx="6" class="limb"/>
+  <path d="M75 150 h50 l-5 30 h-40 z" class="limb"/>
+
+  <g class="upper-body">
+    <!-- Torso -->
+    <path d="M70 85 h60 l-10 60 h-40 z" class="limb"/>
+    <circle cx="100" cy="80" r="5" class="joint"/>
+    <ellipse cx="100" cy="50" rx="20" ry="25" class="limb"/>
+
+    <!-- Right arm (raised overhead) -->
+    <circle cx="135" cy="100" r="7" class="joint"/>
+    <rect x="126" y="40" width="10" height="65" rx="5" class="limb"/>
+
+    <!-- Left arm (at side) -->
+    <circle cx="65" cy="100" r="7" class="joint"/>
+    <rect x="60" y="105" width="10" height="70" rx="5" class="limb"/>
+  </g>
+</svg>

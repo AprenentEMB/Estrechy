@@ -1,0 +1,63 @@
+<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg" class="stretching-mannequin">
+  <style>
+    .joint { fill: #555; }
+    /* Using lines with thick strokes instead of rects makes joints rotate perfectly without breaking */
+    .limb { stroke: #ddd; stroke-width: 16; stroke-linecap: round; }
+    .thin-limb { stroke: #ddd; stroke-width: 12; stroke-linecap: round; }
+    .head-shape { fill: #ddd; stroke: #999; stroke-width: 2; }
+
+    /* The Kinematic Chain */
+    .thigh { transform-origin: 250px 170px; animation: fold-thigh 9s ease-in-out infinite; }
+    .torso-group { transform-origin: 250px 110px; animation: fold-torso 9s ease-in-out infinite; }
+    .arm { transform-origin: 250px 20px; animation: reach-arm 9s ease-in-out infinite; }
+    .head { transform-origin: 250px 20px; animation: drop-head 9s ease-in-out infinite; }
+    
+    /* Breathing expansion */
+    .chest { animation: breathe 9s ease-in-out infinite; }
+
+    @keyframes fold-thigh {
+      0%, 10%, 90%, 100% { transform: rotate(0deg); }
+      35%, 75% { transform: rotate(72deg); } /* Hips drop to heels */
+    }
+    
+    @keyframes fold-torso {
+      0%, 10%, 90%, 100% { transform: rotate(0deg); }
+      35%, 75% { transform: rotate(-160deg); } /* Torso folds flat over thighs */
+    }
+    
+    @keyframes reach-arm {
+      0%, 10%, 90%, 100% { transform: rotate(0deg); }
+      35%, 75% { transform: rotate(160deg); } /* Arms stretch forward to floor */
+    }
+    
+    @keyframes drop-head {
+      0%, 10%, 90%, 100% { transform: rotate(0deg); }
+      35%, 75% { transform: rotate(-35deg); } /* Head drops down */
+    }
+
+    /* The breathing loop occurs only while resting in the pose (between 35% and 75%) */
+    @keyframes breathe {
+      0%, 34%, 76%, 100% { stroke-width: 16; }
+      45%, 65% { stroke-width: 19; } /* Inhale: back rounds/expands */
+      55% { stroke-width: 16; }      /* Exhale: back relaxes */
+    }
+  </style>
+
+  <line x1="50" y1="178" x2="350" y2="178" stroke="#eee" stroke-width="4" stroke-linecap="round"/>
+
+  <line x1="250" y1="170" x2="320" y2="170" class="limb" stroke="#ccc" />
+
+  <g class="thigh">
+    <line x1="250" y1="170" x2="250" y2="110" class="limb" />
+    <circle cx="250" cy="170" r="6" class="joint" /> <g class="torso-group">
+      <line x1="250" y1="110" x2="250" y2="20" class="limb chest" />
+      <circle cx="250" cy="110" r="6" class="joint" /> <g class="head">
+        <line x1="250" y1="20" x2="250" y2="5" stroke="#ddd" stroke-width="8" /> <ellipse cx="250" cy="-15" rx="14" ry="18" class="head-shape" />
+      </g>
+
+      <g class="arm">
+         <line x1="250" y1="20" x2="250" y2="100" class="thin-limb" />
+         <circle cx="250" cy="20" r="5" class="joint" /> </g>
+    </g>
+  </g>
+</svg>
