@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 import { motion, AnimatePresence } from 'framer-motion'
 import { BodySelector } from '../components/BodySelector'
 import { PainSelectorModal } from '../components/PainSelectorModal'
@@ -64,10 +65,10 @@ export function HomePage() {
   const [tab, setTab] = useState<Tab>('home')
 
   useEffect(() => {
-    if (!currentRoutine && view !== 'selection') {
+    if (!currentRoutine) {
       setView('selection')
     }
-  }, [currentRoutine, view])
+  }, [currentRoutine])
 
   const handlePainSelect = (painType: PainType) => {
     if (!selectedBodyPart) return
